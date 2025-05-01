@@ -1,0 +1,89 @@
+﻿<Window x:Class="DisordersOfCarbohydrateMetabolismsCalculator.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" mc:Ignorable="d"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:uc="clr-namespace:DisordersOfCarbohydrateMetabolismsCalculator.UserControls"
+        xmlns:vm="clr-namespace:DisordersOfCarbohydrateMetabolismsCalculator.ViewModels"
+        xmlns:local="clr-namespace:DisordersOfCarbohydrateMetabolismsCalculator"
+        
+        WindowStyle="None" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen"
+        AllowsTransparency="True" Background="Transparent" Height="828" Width="1197"
+        Title="Калькулятор рисков развития ранних нарушенний углеводного обмена">
+
+    <Window.DataContext>
+        <vm:MainViewModel />
+    </Window.DataContext>
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Styles/MainStyle.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Border Style="{StaticResource MainBorder}">
+        <Grid>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Border Grid.Row="0" Style="{StaticResource HeaderBorder}" MouseDown="Header_MouseDown">
+                <StackPanel Grid.Column="0" Style="{StaticResource HeaderStackPanel}">
+                    <Button Style="{StaticResource CollapseButton}" Click="CollapseButton_Click" />
+                    <Button Style="{StaticResource CloseButton}" Click="CloseButton_Click" />
+                </StackPanel>
+            </Border>
+
+            <Image Grid.Row="1" Style="{StaticResource BackgroundImage}" />
+
+            <StackPanel Grid.Row="1">
+
+                <TextBlock Style="{StaticResource TitleTextBlock}" Text="Введите показатели здоровья" />
+
+                <uc:ParameterTextBox Style="{StaticResource Parameter}"
+                                     ImageSource="/Resources/glucose.png"
+                                     Parameter="{Binding FastingGlycemia}"
+                                     ParameterName="Гликемия натощак"
+                                     ParameterUnit="[ммоль/л]" />
+                <uc:ParameterTextBox Style="{StaticResource Parameter}"
+                                     ImageSource="/Resources/hemoglobin.png"
+                                     Parameter="{Binding GlycatedHemoglobinLevel}"
+                                     ParameterName="Уровень гликированного гемоглобина"
+                                     ParameterUnit="[%]" />
+                <uc:ParameterTextBox Style="{StaticResource Parameter}"
+                                     ImageSource="/Resources/body_index_mass.png"
+                                     Parameter="{Binding BodyMassIndex}"
+                                     ParameterName="Индекс массы тела"
+                                     ParameterUnit="[кг/м²]" />
+                <uc:ParameterTextBox Style="{StaticResource Parameter}"
+                                     ImageSource="/Resources/external_food_povedenie.png"
+                                     Parameter="{Binding ExternalEatingBehaviorScale}"
+                                     ParameterName="Шкала экстернального пищевого поведения"
+                                     ParameterUnit="[балл]" />
+                <uc:ParameterTextBox Style="{StaticResource Parameter}"
+                                     ImageSource="/Resources/cholesterol.png"
+                                     Parameter="{Binding TotalCholesterolLevel}"
+                                     ParameterName="Уровень общего холестерина"
+                                     ParameterUnit="[ммоль/л]" />
+                <uc:ParameterTextBox Style="{StaticResource Parameter}"
+                                     ImageSource="/Resources/triglycerides.png"
+                                     Parameter="{Binding TriglycerideLevel}"
+                                     ParameterName="Уровень триглицеридов"
+                                     ParameterUnit="[ммоль/л]" />
+
+                <TextBlock Style="{StaticResource CharecteristicTextBlock}"
+                           Text="{Binding LikelihoodOfDevelopingEarlyDisordersOfCarbohydrateMetabolism}" />
+
+                <TextBlock Style="{StaticResource ResultTextBlock}"
+                           Text="{Binding ResultMessage}" />
+
+            </StackPanel>
+        
+        </Grid>
+    </Border>
+    
+</Window>

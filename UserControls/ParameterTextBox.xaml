@@ -1,0 +1,80 @@
+﻿<UserControl x:Class="DisordersOfCarbohydrateMetabolismsCalculator.UserControls.ParameterTextBox"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" mc:Ignorable="d"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DisordersOfCarbohydrateMetabolismsCalculator.UserControls"
+             Name="ParameterUserControl"
+              
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Styles/ParameterStyle.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="76" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="120" />
+            <ColumnDefinition Width="130" />
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Column="0"
+                Style="{StaticResource TileBorder}"
+                Height="{Binding Height, ElementName=ParameterUserControl}"
+                Background="{Binding BorderBrush, ElementName=ParameterUserControl}">
+
+            <Image Source="{Binding ImageSource, ElementName=ParameterUserControl}" />
+
+        </Border>
+
+        <Border Grid.Column="1"
+                Style="{StaticResource TileBorder}"
+                Height="{Binding Height, ElementName=ParameterUserControl}"
+                Background="{Binding BorderBrush, ElementName=ParameterUserControl}">
+
+            <TextBlock Foreground="{Binding Foreground, ElementName=ParameterUserControl}"
+                       FontSize="{Binding FontSize, ElementName=ParameterUserControl}"
+                       Text="{Binding ParameterName, ElementName=ParameterUserControl}"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Left"
+                       Margin="12, 0, 0, 0" />
+
+        </Border>
+
+        <Border Grid.Column="2"
+                Style="{StaticResource TileBorder}"
+                Height="{Binding Height, ElementName=ParameterUserControl}"
+                Background="{Binding BorderBrush, ElementName=ParameterUserControl}">
+
+            <TextBox Style="{StaticResource ParameterTextBox}"
+                     Foreground="{Binding Foreground, ElementName=ParameterUserControl}"
+                     CaretBrush="{Binding Foreground, ElementName=ParameterUserControl}"
+                     IsEnabled="{Binding IsEnabled, ElementName=ParameterUserControl}"
+                     FontSize="{Binding FontSize, ElementName=ParameterUserControl}"
+                     Text="{Binding Parameter, ElementName=ParameterUserControl, UpdateSourceTrigger=PropertyChanged}" />
+
+        </Border>
+
+        <Border Grid.Column="3"
+                Style="{StaticResource TileBorder}"
+                Background="{Binding BorderBrush, ElementName=ParameterUserControl}"
+                Height="{Binding Height, ElementName=ParameterUserControl}">
+
+            <TextBlock Foreground="{Binding Foreground, ElementName=ParameterUserControl}"
+                       FontSize="{Binding FontSize, ElementName=ParameterUserControl}"
+                       Text="{Binding ParameterUnit, ElementName=ParameterUserControl}" 
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center" />
+
+        </Border>
+
+    </Grid>
+
+</UserControl>
