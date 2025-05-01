@@ -12,11 +12,14 @@ namespace DisordersOfCarbohydrateMetabolismsCalculator.ViewModels
             get => _fastingGlycemia;
             set
             {
-                if (double.TryParse(value.Replace(",", "."), out var factor))
-                {
-                    CalculatorModel.FastingGlycemia = factor;
-                    UpdateCalculatedCharacteristic();
-                }
+                if (string.IsNullOrEmpty(value))
+                    FastingGlycemia = "0";
+
+                if (!double.TryParse(value.Replace(",", "."), out var factor))
+                    return;
+
+                CalculatorModel.FastingGlycemia = factor;
+                UpdateCalculatedCharacteristic();
 
                 SetProperty(ref _fastingGlycemia, value);
             }
@@ -29,11 +32,14 @@ namespace DisordersOfCarbohydrateMetabolismsCalculator.ViewModels
             get => _glycatedHemoglobinLevel;
             set
             {
-                if (double.TryParse(value.Replace(",", "."), out var factor))
-                {
-                    CalculatorModel.GlycatedHemoglobinLevel = factor;
-                    UpdateCalculatedCharacteristic();
-                }
+                if (string.IsNullOrEmpty(value))
+                    GlycatedHemoglobinLevel = "0";
+
+                if (!double.TryParse(value.Replace(",", "."), out var factor))
+                    return;
+
+                CalculatorModel.GlycatedHemoglobinLevel = factor;
+                UpdateCalculatedCharacteristic();
 
                 SetProperty(ref _glycatedHemoglobinLevel, value); ;
             }
@@ -46,11 +52,14 @@ namespace DisordersOfCarbohydrateMetabolismsCalculator.ViewModels
             get => _bodyMassIndex;
             set
             {
-                if (double.TryParse(value.Replace(",", "."), out var factor))
-                {
-                    CalculatorModel.BodyMassIndex = factor;
-                    UpdateCalculatedCharacteristic();
-                }
+                if (string.IsNullOrEmpty(value))
+                    BodyMassIndex = "0";
+
+                if (!double.TryParse(value.Replace(",", "."), out var factor))
+                    return;
+
+                CalculatorModel.BodyMassIndex = factor;
+                UpdateCalculatedCharacteristic();
 
                 SetProperty(ref _bodyMassIndex, value);
             }
@@ -63,11 +72,14 @@ namespace DisordersOfCarbohydrateMetabolismsCalculator.ViewModels
             get => _externalEatingBehaviorScale;
             set
             {
-                if (double.TryParse(value.Replace(",", "."), out var factor))
-                {
-                    CalculatorModel.ExternalEatingBehaviorScale = factor;
-                    UpdateCalculatedCharacteristic();
-                }
+                if (string.IsNullOrEmpty(value))
+                    ExternalEatingBehaviorScale = "0";
+
+                if (!double.TryParse(value.Replace(",", "."), out var factor))
+                    return;
+
+                CalculatorModel.ExternalEatingBehaviorScale = factor;
+                UpdateCalculatedCharacteristic();
 
                 SetProperty(ref _externalEatingBehaviorScale, value);
             }
@@ -80,11 +92,14 @@ namespace DisordersOfCarbohydrateMetabolismsCalculator.ViewModels
             get => _totalCholesterolLevel;
             set
             {
-                if (double.TryParse(value.Replace(",", "."), out var factor))
-                {
-                    CalculatorModel.TotalCholesterolLevel = factor;
-                    UpdateCalculatedCharacteristic();
-                }
+                if (string.IsNullOrEmpty(value))
+                    TotalCholesterolLevel = "0";
+
+                if (!double.TryParse(value.Replace(",", "."), out var factor))
+                    return;
+
+                CalculatorModel.TotalCholesterolLevel = factor;
+                UpdateCalculatedCharacteristic();
 
                 SetProperty(ref _totalCholesterolLevel, value);
             }
@@ -97,11 +112,14 @@ namespace DisordersOfCarbohydrateMetabolismsCalculator.ViewModels
             get => _triglycerideLevel;
             set
             {
-                if (double.TryParse(value.Replace(",", "."), out var factor))
-                {
-                    CalculatorModel.TriglycerideLevel = factor;
-                    UpdateCalculatedCharacteristic();
-                }
+                if (string.IsNullOrEmpty(value))
+                    TriglycerideLevel = "0";
+
+                if (!double.TryParse(value.Replace(",", "."), out var factor))
+                    return;
+
+                CalculatorModel.TriglycerideLevel = factor;
+                UpdateCalculatedCharacteristic();
 
                 SetProperty(ref _triglycerideLevel, value);
             }
