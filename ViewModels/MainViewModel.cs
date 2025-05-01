@@ -15,7 +15,7 @@ namespace DisordersOfCarbohydrateMetabolismsCalculator.ViewModels
                 if (string.IsNullOrEmpty(value))
                     FastingGlycemia = "0";
 
-                if (!double.TryParse(value.Replace(",", "."), out var factor))
+                if (!double.TryParse(value.Replace(",", "."), NumberStyles.Float, CultureInfo.InvariantCulture, out var factor))
                     return;
 
                 CalculatorModel.FastingGlycemia = factor;
@@ -35,7 +35,7 @@ namespace DisordersOfCarbohydrateMetabolismsCalculator.ViewModels
                 if (string.IsNullOrEmpty(value))
                     GlycatedHemoglobinLevel = "0";
 
-                if (!double.TryParse(value.Replace(",", "."), out var factor))
+                if (!double.TryParse(value.Replace(",", "."), NumberStyles.Float, CultureInfo.InvariantCulture, out var factor))
                     return;
 
                 CalculatorModel.GlycatedHemoglobinLevel = factor;
@@ -55,7 +55,7 @@ namespace DisordersOfCarbohydrateMetabolismsCalculator.ViewModels
                 if (string.IsNullOrEmpty(value))
                     BodyMassIndex = "0";
 
-                if (!double.TryParse(value.Replace(",", "."), out var factor))
+                if (!double.TryParse(value.Replace(",", "."), NumberStyles.Float, CultureInfo.InvariantCulture, out var factor))
                     return;
 
                 CalculatorModel.BodyMassIndex = factor;
@@ -75,7 +75,7 @@ namespace DisordersOfCarbohydrateMetabolismsCalculator.ViewModels
                 if (string.IsNullOrEmpty(value))
                     ExternalEatingBehaviorScale = "0";
 
-                if (!double.TryParse(value.Replace(",", "."), out var factor))
+                if (!double.TryParse(value.Replace(",", "."), NumberStyles.Float, CultureInfo.InvariantCulture, out var factor))
                     return;
 
                 CalculatorModel.ExternalEatingBehaviorScale = factor;
@@ -95,7 +95,7 @@ namespace DisordersOfCarbohydrateMetabolismsCalculator.ViewModels
                 if (string.IsNullOrEmpty(value))
                     TotalCholesterolLevel = "0";
 
-                if (!double.TryParse(value.Replace(",", "."), out var factor))
+                if (!double.TryParse(value.Replace(",", "."), NumberStyles.Float, CultureInfo.InvariantCulture, out var factor))
                     return;
 
                 CalculatorModel.TotalCholesterolLevel = factor;
@@ -115,7 +115,7 @@ namespace DisordersOfCarbohydrateMetabolismsCalculator.ViewModels
                 if (string.IsNullOrEmpty(value))
                     TriglycerideLevel = "0";
 
-                if (!double.TryParse(value.Replace(",", "."), out var factor))
+                if (!double.TryParse(value.Replace(",", "."), NumberStyles.Float, CultureInfo.InvariantCulture, out var factor))
                     return;
 
                 CalculatorModel.TriglycerideLevel = factor;
