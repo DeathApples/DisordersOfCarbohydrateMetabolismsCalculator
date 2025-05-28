@@ -28,5 +28,14 @@ namespace DisordersOfCarbohydrateMetabolismsCalculator.Views
         {
             Close();
         }
+
+        private void Grid_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+            {
+                FocusManager.SetFocusedElement(this, this);
+                Keyboard.ClearFocus();
+            }
+        }
     }
 }

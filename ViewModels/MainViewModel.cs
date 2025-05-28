@@ -125,14 +125,6 @@ namespace DisordersOfCarbohydrateMetabolismsCalculator.ViewModels
             }
         }
 
-        // Вероятность развития ранних нарушений углеводного обмена
-        private string _likelihoodOfDevelopingEarlyDisordersOfCarbohydrateMetabolism;
-        public string LikelihoodOfDevelopingEarlyDisordersOfCarbohydrateMetabolism
-        {
-            get => _likelihoodOfDevelopingEarlyDisordersOfCarbohydrateMetabolism;
-            set => SetProperty(ref _likelihoodOfDevelopingEarlyDisordersOfCarbohydrateMetabolism, value);
-        }
-
         // Сообщение о результате
         private string _resultMessage;
         public string ResultMessage
@@ -143,9 +135,7 @@ namespace DisordersOfCarbohydrateMetabolismsCalculator.ViewModels
 
         private void UpdateCalculatedCharacteristic()
         {
-            LikelihoodOfDevelopingEarlyDisordersOfCarbohydrateMetabolism =
-                $"Рассчётная характеристика: {CalculatorModel.LikelihoodOfDevelopingEarlyDisordersOfCarbohydrateMetabolism}";
-            ResultMessage = $"Результат: {CalculatorModel.ResultMessage}";
+            ResultMessage = $"{CalculatorModel.ResultMessage}";
         }
 
         public MainViewModel()

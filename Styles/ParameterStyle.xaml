@@ -17,8 +17,9 @@
     <Style x:Key="ParameterTextBox" TargetType="TextBox">
 
         <Style.Setters>
+            <Setter Property="BorderBrush" Value="LightGray" />
+            <Setter Property="SelectionBrush" Value="#E7D1D4" />
             <Setter Property="Background" Value="Transparent" />
-            <Setter Property="SelectionBrush" Value="RosyBrown" />
             <Setter Property="HorizontalContentAlignment" Value="Center" />
             <Setter Property="VerticalContentAlignment" Value="Center" />
             <Setter Property="BorderThickness" Value="0, 0, 0, 1" />
@@ -29,7 +30,7 @@
                     <ControlTemplate TargetType="TextBox">
                         <Border x:Name="Border"
                                 Background="{TemplateBinding Background}"
-                                BorderBrush="{TemplateBinding Foreground}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
                                 BorderThickness="{TemplateBinding BorderThickness}"
                                 SnapsToDevicePixels="True">
                             <ScrollViewer x:Name="PART_ContentHost" 
@@ -39,10 +40,10 @@
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter TargetName="Border" Property="BorderBrush" Value="#A8A8A8" />
+                                <Setter TargetName="Border" Property="BorderBrush" Value="Snow" />
                             </Trigger>
                             <Trigger Property="IsKeyboardFocused" Value="True">
-                                <Setter TargetName="Border" Property="BorderBrush" Value="#A01818" />
+                                <Setter TargetName="Border" Property="BorderBrush" Value="#E7D1D4" />
                                 <Setter Property="BorderThickness" Value="0, 0, 0, 2" />
                             </Trigger>
                             <!--<Trigger Property="IsEnabled" Value="False">
@@ -53,15 +54,6 @@
                 </Setter.Value>
             </Setter>
         </Style.Setters>
-
-        <Style.Triggers>
-            <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="BorderBrush" Value="DarkRed" />
-            </Trigger>
-            <Trigger Property="IsSelectionActive" Value="True">
-                <Setter Property="BorderBrush" Value="Gray" />
-            </Trigger>
-        </Style.Triggers>
 
     </Style>
 

@@ -9,11 +9,11 @@
             
             <Setter Property="CornerRadius" Value="12" />
             <Setter Property="BorderThickness" Value="0" />
-            <Setter Property="Background" Value="#262626" />
+            <Setter Property="Background" Value="#321a1e" />
 
             <Setter Property="Clip">
                 <Setter.Value>
-                    <RectangleGeometry RadiusX="12" RadiusY="12" Rect="0,0,1197,828"/>
+                    <RectangleGeometry RadiusX="12" RadiusY="12" Rect="0,0,1456,828"/>
                 </Setter.Value>
             </Setter>
             
@@ -26,7 +26,7 @@
             <Setter Property="BorderThickness" Value="0" />
             <Setter Property="Margin" Value="0" />
             <Setter Property="CornerRadius" Value="12, 12, 0, 0" />
-            <Setter Property="Background" Value="#262626" />
+            <Setter Property="Background" Value="#7a565a" />
         </Style.Setters>
     </Style>
 
@@ -39,26 +39,39 @@
         </Style.Setters>
     </Style>
 
+    <Style x:Key="ParameterStackPanel" TargetType="StackPanel">
+        <Style.Setters>
+            <Setter Property="Margin" Value="0, 0, 28, 0" />
+            <Setter Property="Orientation" Value="Vertical" />
+            <Setter Property="HorizontalAlignment" Value="Right" />
+        </Style.Setters>
+    </Style>
+
 
 
     <Style x:Key="TitleTextBlock" TargetType="TextBlock">
         <Style.Setters>
-            <Setter Property="Foreground" Value="Snow" />
+            <Setter Property="Foreground" Value="Black" />
             <Setter Property="HorizontalAlignment" Value="Center" />
             <Setter Property="Margin" Value="0, 32, 0, 24" />
-            <Setter Property="FontSize" Value="32" />
+            <Setter Property="FontSize" Value="42" />
         </Style.Setters>
     </Style>
 
-    <Style x:Key="CharecteristicTextBlock" TargetType="TextBlock" BasedOn="{StaticResource TitleTextBlock}">
+    <Style x:Key="HeaderTextBlock" TargetType="TextBlock">
         <Style.Setters>
-            <Setter Property="Margin" Value="0, 24, 0, 0" />
+            <Setter Property="Foreground" Value="Snow" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="32, 0, 0, 0" />
+            <Setter Property="FontSize" Value="14" />
         </Style.Setters>
     </Style>
 
     <Style x:Key="ResultTextBlock" TargetType="TextBlock" BasedOn="{StaticResource TitleTextBlock}">
         <Style.Setters>
-            <Setter Property="Margin" Value="0" />
+            <Setter Property="Margin" Value="0, 42, 0, 0" />
+            <Setter Property="FontSize" Value="32" />
         </Style.Setters>
     </Style>
 
@@ -66,9 +79,33 @@
 
     <Style x:Key="BackgroundImage" TargetType="Image">
         <Style.Setters>
-            <Setter Property="Source" Value="/Resources/background.png" />
+            <Setter Property="Source" Value="/Resources/background.jpg" />
             <Setter Property="Stretch" Value="Fill" />
             <Setter Property="Opacity" Value="0.8" />
+            <Setter Property="Source">
+                <Setter.Value>
+                    <CroppedBitmap Source="/Resources/background.jpg">
+                        <CroppedBitmap.SourceRect>
+                            <Int32Rect X="400" Y="0" Width="5744" Height="3456"/>
+                        </CroppedBitmap.SourceRect>
+                    </CroppedBitmap>
+                </Setter.Value>
+            </Setter>
+        </Style.Setters>
+    </Style>
+
+    <Style x:Key="IconImage" TargetType="Image">
+        <Style.Setters>
+            <Setter Property="Width" Value="16" />
+            <Setter Property="Height" Value="16" />
+            <Setter Property="Margin" Value="8, 0, 0, 0" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Source">
+                <Setter.Value>
+                    <BitmapImage UriSource="/Resources/icon.ico" DecodePixelWidth="16" DecodePixelHeight="16"/>
+                </Setter.Value>
+            </Setter>
         </Style.Setters>
     </Style>
 
@@ -79,14 +116,14 @@
             
             <Setter Property="Background" Value="Transparent" />
             <Setter Property="Foreground" Value="Snow" />
-            <Setter Property="FontSize" Value="18" />
+            <Setter Property="FontSize" Value="21" />
             <Setter Property="Margin" Value="0, 10, 0, 10" />
             <Setter Property="Height" Value="64" />
-            <Setter Property="Width" Value="760" />
+            <Setter Property="Width" Value="850" />
 
             <Setter Property="BorderBrush">
                 <Setter.Value>
-                    <SolidColorBrush Color="Black" Opacity="0.45" />
+                    <SolidColorBrush Color="#261b1c" Opacity="0.45" />
                 </Setter.Value>
             </Setter>
 
@@ -102,6 +139,7 @@
             <Setter Property="FocusVisualStyle" Value="{x:Null}" />
             <Setter Property="Background" Value="Transparent" />
             <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Focusable" Value="False" />
 
             <Setter Property="FontSize" Value="12" />
             <Setter Property="Height" Value="30" />
@@ -114,7 +152,7 @@
         <Style.Triggers>
             
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="#424242"/>
+                <Setter Property="Background" Value="#453334"/>
                 <Setter Property="BorderBrush" Value="Transparent" />
             </Trigger>
             
@@ -169,7 +207,7 @@
 
         <Style.Triggers>
             <Trigger Property="IsPressed" Value="True">
-                <Setter Property="Background" Value="#686868" />
+                <Setter Property="Background" Value="#5e4547" />
                 <Setter Property="BorderBrush" Value="Transparent" />
             </Trigger>
         </Style.Triggers>

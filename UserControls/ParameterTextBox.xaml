@@ -21,8 +21,8 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="76" />
             <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="120" />
             <ColumnDefinition Width="130" />
+            <ColumnDefinition Width="140" />
         </Grid.ColumnDefinitions>
 
         <Border Grid.Column="0"

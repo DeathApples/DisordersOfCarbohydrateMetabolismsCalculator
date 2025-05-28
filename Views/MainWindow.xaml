@@ -8,8 +8,9 @@
         xmlns:local="clr-namespace:DisordersOfCarbohydrateMetabolismsCalculator"
         
         WindowStyle="None" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen"
-        AllowsTransparency="True" Background="Transparent" Height="828" Width="1197"
-        Title="Калькулятор рисков развития ранних нарушенний углеводного обмена">
+        AllowsTransparency="True" Background="Transparent" Height="828" Width="1456"
+        Title="Калькулятор рисков развития ранних нарушений углеводного обмена"
+        Icon="/Resources/icon.ico">
 
     <Window.DataContext>
         <vm:MainViewModel />
@@ -24,7 +25,7 @@
     </Window.Resources>
 
     <Border Style="{StaticResource MainBorder}">
-        <Grid>
+        <Grid PreviewMouseDown="Grid_PreviewMouseDown">
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto" />
@@ -32,15 +33,20 @@
             </Grid.RowDefinitions>
 
             <Border Grid.Row="0" Style="{StaticResource HeaderBorder}" MouseDown="Header_MouseDown">
-                <StackPanel Grid.Column="0" Style="{StaticResource HeaderStackPanel}">
-                    <Button Style="{StaticResource CollapseButton}" Click="CollapseButton_Click" />
-                    <Button Style="{StaticResource CloseButton}" Click="CloseButton_Click" />
-                </StackPanel>
+                <Grid>
+                    <StackPanel Grid.Column="0" Style="{StaticResource HeaderStackPanel}">
+                        <Button Style="{StaticResource CollapseButton}" Click="CollapseButton_Click" />
+                        <Button Style="{StaticResource CloseButton}" Click="CloseButton_Click" />
+                    </StackPanel>
+                    <TextBlock Grid.Row="0" Style="{StaticResource HeaderTextBlock}"
+                               Text="{Binding Title, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"/>
+                    <Image Style="{StaticResource IconImage}" />
+                </Grid>
             </Border>
 
             <Image Grid.Row="1" Style="{StaticResource BackgroundImage}" />
 
-            <StackPanel Grid.Row="1">
+            <StackPanel Grid.Row="1" Style="{StaticResource ParameterStackPanel}">
 
                 <TextBlock Style="{StaticResource TitleTextBlock}" Text="Введите показатели здоровья" />
 
@@ -74,9 +80,6 @@
                                      Parameter="{Binding TriglycerideLevel}"
                                      ParameterName="Уровень триглицеридов"
                                      ParameterUnit="[ммоль/л]" />
-
-                <TextBlock Style="{StaticResource CharecteristicTextBlock}"
-                           Text="{Binding LikelihoodOfDevelopingEarlyDisordersOfCarbohydrateMetabolism}" />
 
                 <TextBlock Style="{StaticResource ResultTextBlock}"
                            Text="{Binding ResultMessage}" />
